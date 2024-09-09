@@ -70,7 +70,24 @@ public class Complex {
         im += b.im;
         return this;
     }
+    public Complex minus(Complex b){
+        re -= b.re;
+        im -= b.im;
+        return this;
+    }
 
+    public Complex divide(Complex b) {
+        double denom = b.re * b.re + b.im * b.im;
+        double real = (re * b.re + im * b.im) / denom;
+        double imag = (im * b.re - re * b.im) / denom;
+        re = real;
+        im = imag;
+        return this;
+    }
+
+    public double modulus() {
+        return Math.sqrt(re * re + im * im);
+    }
     /**
      * Multiply operation.
      * @param  b multiplier
